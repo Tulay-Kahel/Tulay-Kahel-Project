@@ -26,7 +26,8 @@ def password_decrypter(password: str):
 
 def authenticate_user(
     username: str,
-    password: str
+    password: str,
+    company_id: str
 ):
     # NOTE: Authentication procedures are pseudo-implementation only, this will be finalized in the future
     user_authenticated = False
@@ -38,7 +39,7 @@ def authenticate_user(
     user_info = Admins.objects(username=username).first()
     if user_info:
         # Compare the password
-        if password_decrypter(user_info.password) == password:
+        if password_decrypter(user_info.password) == password and user_info.company_id == company_id:
             user_authenticated = True
 
     return user_authenticated
