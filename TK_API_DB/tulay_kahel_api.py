@@ -12,6 +12,7 @@ from db_models import reports_model as reports
 from db_models import companies_model as companies
 from db_models.reports_model import Reports
 from db_models.companies_model import Companies
+from utils.authenticator import authenticate_user
 from mongoengine import connect
 from datetime import datetime
 
@@ -111,12 +112,25 @@ def create_report(
     tags=["Reports"],
     description="This endpoint allows authenticated users to get all reports based on the company ID."
 )
-def get_all_reports(company_id: str):
+def get_all_reports(
+    company_id: str,
+    username: str,
+    password: str
+):
+    # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
+    user_authenticated = authenticate_user(username, password)
     reports = [i for i in Reports.objects(company_id=company_id)]
-    return {
-        "message": "Reports successfully retrieved!",
-        "reports": [report.to_json() for report in reports]
-    }
+    
+    if user_authenticated:
+        return {
+            "message": "Reports successfully retrieved!",
+            "reports": [report.to_json() for report in reports]
+        }
+    else:
+        return {
+            "message": "You are not authorized to access this reports!",
+            "reports": 0
+        }
 
 # Updating a Report
 # This will update the report status based on the report ID
@@ -227,7 +241,7 @@ def update_company(
 def delete_company(company_id: str):
     company_to_delete = companies.Companies.objects(id=company_id).first()
     company_to_delete.delete()
-    
+
     return {
         "message": "Company successfully deleted!",
         "company": company_to_delete.to_json()
