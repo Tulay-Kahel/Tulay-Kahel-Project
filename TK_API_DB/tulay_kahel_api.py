@@ -119,17 +119,20 @@ def get_all_reports(
 ):
     # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
     user_authenticated = authenticate_user(username, password)
-    reports = [i for i in Reports.objects(company_id=company_id)]
     
-    if user_authenticated:
-        return {
-            "message": "Reports successfully retrieved!",
-            "reports": [report.to_json() for report in reports]
-        }
-    else:
+    # If the user is not authenticated, return a message and an empty list of reports
+    if not user_authenticated:
         return {
             "message": "You are not authorized to access this reports!",
-            "reports": 0
+            "reports": []
+        }
+    
+    # If the user is authenticated, return a message and the list of reports
+    reports = [i for i in Reports.objects(company_id=company_id)]
+    return {
+            "message": "Reports successfully retrieved!",
+            "retrieved_by": f"{username}",
+            "reports": [report.to_json() for report in reports]
         }
 
 # Updating a Report
@@ -139,12 +142,29 @@ def get_all_reports(
     tags=["Reports"],
     description="This endpoint allows authenticated users to update the report status of a report based on its report ID."
 )
-def update_report(report_id: str, status: int):
+def update_report(
+    report_id: str, 
+    status: int,
+    username: str,
+    password: str
+):
+    # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
+    user_authenticated = authenticate_user(username, password)
+
+    # If the user is not authenticated, return a message and an empty list of reports
+    if not user_authenticated:
+        return {
+            "message": f"You are not authorized to update this report {report_id}!",
+            "reports": []
+        }
+    
+    # If the user is authenticated, return a message and the list of reports
     report = Reports.objects(id=report_id).first()
     report.status = status
     report.save()
     return {
         "message": "Report successfully updated!",
+        "update_by": f"{username}",
         "report": report.to_json()
     }
 
@@ -155,11 +175,27 @@ def update_report(report_id: str, status: int):
     tags=["Reports"],
     description="This endpoint allows authenticated users to delete a report based on the report ID."
 )
-def delete_report(report_id: str):
+def delete_report(
+    report_id: str,
+    username: str,
+    password: str
+):
+    # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
+    user_authenticated = authenticate_user(username, password)
+
+    # If the user is not authenticated, return a message and an empty list of reports
+    if not user_authenticated:
+        return {
+            "message": f"You are not authorized to delete this report {report_id}!",
+            "reports": []
+        }
+
+    # If the user is authenticated, return a message and the list of reports
     report = Reports.objects(id=report_id).first()
     report.delete()
     return {
         "message": "Report successfully deleted!",
+        "deleted_by": f"{username}",
         "report": report.to_json()
     }
 
