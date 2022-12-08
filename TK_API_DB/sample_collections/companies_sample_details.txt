@@ -1,0 +1,31 @@
+NOTE: Details preseneted will be used during the development and testing phase only. Do not use this on deployment.
+
+#### COMPANY A ####
+
+company_name = Company A
+company_contact = (032) 8888-8870
+company_email = comp_a.test@tulay-kahel.org
+person_in_charge = Angela Rodriguez
+
+###################
+
+
+#### COMPANY B ####
+
+company_name = Company B
+company_contact = (032) 8888-8869
+company_email = comp_b.test@tulay-kahel.org
+person_in_charge = Katherine Bautista
+
+###################
+
+
+
+#### COMPANY C ####
+
+company_name = Company C
+company_contact = (032) 8888-8868
+company_email = comp_c.tets@tulay-kahel.org
+person_in_charge = Sam Villanueva
+
+###################
