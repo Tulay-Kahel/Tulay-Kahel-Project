@@ -9,7 +9,9 @@ This contains the API EndPoints for the Tulay Kahel Web Application
 # IMPORTS
 from fastapi import FastAPI
 from db_models import reports_model as reports
+from db_models import companies_model as companies
 from db_models.reports_model import Reports
+from db_models.companies_model import Companies
 from mongoengine import connect
 from datetime import datetime
 
@@ -156,17 +158,39 @@ def delete_report(report_id: str):
 # Note that in this case a user is a company
 # This will create a new company in the database
 @app.post(
-    "/users/create",
+    "/companies/create",
     tags=["Companies"],
     description="This endpoint allows the creation of the companies. It will generate a unique ID link for each registered company."
 )
-def create_user(
+def new_company(
     company_name: str,
     company_contact: str,
     company_email: str,
     person_in_charge: str,
 ):
-    pass
+    # Create a new company
+    new_company = companies.Companies(
+        company_name=company_name,
+        company_contact=company_contact,
+        company_email=company_email,
+        person_in_charge=person_in_charge,
+    )
+
+    # Generate a unique ID link for the company
+    new_company.company_id = str(new_company.id)
+    
+    # Save the new company to the database if it doesn't exist
+    if not companies.Companies.objects(company_name=company_name):
+        new_company.save()
+        return {
+            "message": "Company successfully created!",
+            "company": new_company.to_json()
+        }
+    else:
+        return {
+            "message": "Company already exists!"
+        }
+    
 
 ####################################################################################################
 
