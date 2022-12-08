@@ -50,6 +50,10 @@ app = FastAPI(
             "description": "Endpoints for the Companies, which allows a company to access the Tulay Kahel web application."
         },
         {
+            "name": "Admins",
+            "description": "Endpoints for the Admins API, which allows a specific user from a company to access the Tulay Kahel web application's admin panel."
+        },
+        {
             "name": "Resources",
             "description": "Endpoints for the Resources API, which allows users to access the Tulay Kahel web application's resources. This includes resources and information about VAWC."
         }
@@ -202,10 +206,9 @@ def delete_report(
 ####################################################################################################
 
 
-####### USERS ######################################################################################
+####### COMPANIES ######################################################################################
 
-# Creating a user
-# Note that in this case a user is a company
+# Creating a Company
 # This will create a new company in the database
 @app.post(
     "/companies/create",
@@ -283,6 +286,13 @@ def delete_company(company_id: str):
         "company": company_to_delete.to_json()
     }
 
+
+####################################################################################################
+
+
+####### ADMINS #####################################################################################
+
+# TODO - Implement the Admins API
 
 ####################################################################################################
 
