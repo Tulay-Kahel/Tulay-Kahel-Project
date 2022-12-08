@@ -23,7 +23,7 @@ class Report(Document):
     company_id = StringField(required=True)
     date_reported = DateTimeField(required=True)
     time_reported = DateTimeField(required=True)
-    report_type = IntField(required=True) # Reports can be "Personal : 0" or "In Behalf of Someone Else : 1"
+    report_type = IntField(required=True) # Reports can be "Personal : 1" or "In Behalf of Someone Else : 0"
     status = IntField(required=True) # Reports can be "To Read : 0", "Viewed : 1", "Referred/Reported : 2", "Resolved : 3"
 
     # Initializing the Report
