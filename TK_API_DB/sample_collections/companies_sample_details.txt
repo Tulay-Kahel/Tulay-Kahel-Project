@@ -1,4 +1,4 @@
-NOTE: Details preseneted will be used during the development and testing phase only. Do not use this on deployment.
+NOTE: Details presented will be used during the development and testing phase only. Do not use this on deployment.
 
 #### COMPANY A ####
 
