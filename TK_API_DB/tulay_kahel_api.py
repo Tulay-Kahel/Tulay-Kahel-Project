@@ -124,7 +124,7 @@ def get_all_reports(
     password: str
 ):
     # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
-    user_authenticated = authenticate_user(username, password)
+    user_authenticated = authenticate_user(username, password, company_id=company_id)
     
     # If the user is not authenticated, return a message and an empty list of reports
     if not user_authenticated:
@@ -152,10 +152,11 @@ def update_report(
     report_id: str, 
     status: int,
     username: str,
-    password: str
+    password: str,
+    company_id: str
 ):
     # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
-    user_authenticated = authenticate_user(username, password)
+    user_authenticated = authenticate_user(username, password, company_id=company_id)
 
     # If the user is not authenticated, return a message and an empty list of reports
     if not user_authenticated:
@@ -184,10 +185,11 @@ def update_report(
 def delete_report(
     report_id: str,
     username: str,
-    password: str
+    password: str,
+    company_id: str
 ):
     # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
-    user_authenticated = authenticate_user(username, password)
+    user_authenticated = authenticate_user(username, password, company_id=company_id)
 
     # If the user is not authenticated, return a message and an empty list of reports
     if not user_authenticated:
@@ -262,7 +264,7 @@ def update_company(
     password: str
 ):
     # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
-    user_authenticated = authenticate_user(username, password)
+    user_authenticated = authenticate_user(username, password, company_id=company_id)
 
     # If the user is not authenticated, return a message and an empty list of reports
     if not user_authenticated:
