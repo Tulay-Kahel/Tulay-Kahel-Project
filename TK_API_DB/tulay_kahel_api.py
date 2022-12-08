@@ -141,6 +141,38 @@ def get_all_reports(
             "reports": [report.to_json() for report in reports]
         }
 
+
+# Getting a Report based on Report ID
+# This will return a report based on the report ID
+@app.get(
+    "/reports/{report_id}/{company_id}",
+    tags=["Reports"],
+    description="This endpoint allows authenticated users to get a report based on the report ID."
+)
+def get_report(
+    report_id: str,
+    company_id: str,
+    username: str,
+    password: str
+):
+    # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
+    user_authenticated = authenticate_user(username, password, company_id=company_id)
+
+    # If the user is not authenticated, return a message and an empty list of reports
+    if not user_authenticated:
+        return {
+            "message": f"You are not authorized to access this report {report_id}!",
+            "report": []
+        }
+
+    # If the user is authenticated, return a message and the report based on the report ID
+    report = Reports.objects(id=report_id, company_id=company_id).first()
+    return {
+            "message": f"Report {report_id} successfully retrieved!",
+            "retrieved_by": f"{username}",
+            "report": report.to_json()
+        }
+
 # Updating a Report
 # This will update the report status based on the report ID
 @app.put(
