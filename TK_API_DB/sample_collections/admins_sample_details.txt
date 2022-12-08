@@ -3,6 +3,7 @@ NOTE: Details preseneted will be used during the development and testing phase o
 #### ADMIN1 ####
 
 username: test_admin1
+email: test_admin1@tulay-kahel.org
 password(not encrypted): admin_!1
 
 ################
@@ -11,6 +12,7 @@ password(not encrypted): admin_!1
 #### ADMIN2 ####
 
 username: test_admin2
+email: test_admin2@tulay-kahel.org
 password(not encrypted): admin_@2
 
 ################
@@ -19,6 +21,7 @@ password(not encrypted): admin_@2
 #### ADMIN3 ####
 
 username: test_admin3
+email: test_admin3@tulay-kahel.org
 password(not encrypted): admin_#3
 
 ################
