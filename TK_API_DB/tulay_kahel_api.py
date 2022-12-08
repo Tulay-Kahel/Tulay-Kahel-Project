@@ -43,8 +43,8 @@ app = FastAPI(
             "description": "Endpoints for the Reports API, which allows users to send reports to the Tulay Kahel web application."
         },
         {
-            "name": "Users",
-            "description": "Endpoints for the Users API, which allows users to access the Tulay Kahel web application's users."
+            "name": "Companies",
+            "description": "Endpoints for the Companies, which allows a company to access the Tulay Kahel web application."
         },
         {
             "name": "Resources",
@@ -149,17 +149,34 @@ def delete_report(report_id: str):
 
 ####################################################################################################
 
+
 ####### USERS ######################################################################################
 
-# TODO - Implement the Users API
+# Creating a user
+# Note that in this case a user is a company
+# This will create a new company in the database
+@app.post(
+    "/users/create",
+    tags=["Companies"],
+    description="This endpoint allows the creation of the companies. It will generate a unique ID link for each registered company."
+)
+def create_user(
+    company_name: str,
+    company_contact: str,
+    company_email: str,
+    person_in_charge: str,
+):
+    pass
 
 ####################################################################################################
+
 
 ####### RESOURCES ##################################################################################
 
 # TODO - Implement the Resources API
 
 ####################################################################################################
+
 if __name__ == "__main__":
     import uvicorn
     # Allow hot reloading
