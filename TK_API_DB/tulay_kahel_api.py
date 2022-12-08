@@ -221,6 +221,13 @@ def new_company(
     company_email: str,
     person_in_charge: str,
 ):
+    # Save the new company to the database if it doesn't exist
+    if companies.Companies.objects(company_name=company_name):
+        # Company already exists!
+        return {
+            "message": f"Company:{company_name} already exists!"
+        }
+    
     # Create a new company
     new_company = companies.Companies(
         company_name=company_name,
@@ -228,21 +235,13 @@ def new_company(
         company_email=company_email,
         person_in_charge=person_in_charge,
     )
-
     # Generate a unique ID link for the company
     new_company.company_id = str(new_company.id)
-    
-    # Save the new company to the database if it doesn't exist
-    if not companies.Companies.objects(company_name=company_name):
-        new_company.save()
-        return {
-            "message": "Company successfully created!",
-            "company": new_company.to_json()
-        }
-    else:
-        return {
-            "message": "Company already exists!"
-        }
+    new_company.save()
+    return {
+        "message": "Company successfully created!",
+        "company": new_company.to_json()
+    }
 
 # Update Company Information
 # This will update the company information based on the company ID
