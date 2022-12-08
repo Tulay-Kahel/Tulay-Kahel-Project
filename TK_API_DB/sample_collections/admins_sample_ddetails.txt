@@ -1,0 +1,24 @@
+NOTE: Details preseneted will be used during the development and testing phase only. Do not use this on deployment.
+
+#### ADMIN1 ####
+
+username: test_admin1
+password(not encrypted): admin_!1
+
+################
+
+
+#### ADMIN2 ####
+
+username: test_admin2
+password(not encrypted): admin_@2
+
+################
+
+
+#### ADMIN3 ####
+
+username: test_admin3
+password(not encrypted): admin_#3
+
+################
