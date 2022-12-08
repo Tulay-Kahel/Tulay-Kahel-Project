@@ -10,8 +10,10 @@ This contains the API EndPoints for the Tulay Kahel Web Application
 from fastapi import FastAPI
 from db_models import reports_model as reports
 from db_models import companies_model as companies
+from db_models import admins_model as admins
 from db_models.reports_model import Reports
 from db_models.companies_model import Companies
+from db_models.admins_model import Admins
 from utils.authenticator import authenticate_user
 from mongoengine import connect
 from datetime import datetime
@@ -307,9 +309,59 @@ def delete_company(
 ####################################################################################################
 
 
+def password_encrypt(password: str):
+    # Psedudo encryption using RSA
+    public_key = (17, 323) # NOTE: Change this to a more secure key on deployment
+
+    encrypted_chars = []
+    for char in password:
+        encrypted_char = chr((ord(char) ** public_key[0]) % public_key[1])
+        encrypted_chars.append(encrypted_char)
+    # Join the list of encrypted chars to form a string (encrypted password)
+    encrypted_password = "".join(encrypted_chars)
+
+    # Return the encrypted password
+    return encrypted_password
 ####### ADMINS #####################################################################################
 
-# TODO - Implement the Admins API
+# Admin Registration
+@app.post(
+    "/admins/register",
+    tags=["Admins"],
+    description="This endpoint allows the registration of the admins."
+)
+def new_admin(
+    admin_name: str,
+    admin_email: str,
+    admin_password: str,
+    company_id: str
+):
+    # Check if the company exists
+    if not companies.Companies.objects(id=company_id):
+        # Company does not exist!
+        return {
+            "message": f"Company does not exist! Please register the company first."
+        }
+
+    # Save the new admin to the database if it doesn't exist (There could only be one admin per company)
+    if admins.Admins.objects(company_id=company_id):
+        # Admin already exists!
+        return {
+            "message": f"Admin for the company, already exists!"
+        }
+    
+    # Create a new admin
+    new_admin = admins.Admins(
+        username=admin_name,
+        email=admin_email,
+        password=password_encrypt(admin_password),
+        company_id=company_id
+    )
+    new_admin.save()
+    return {
+        "message": "Admin successfully created!",
+        "admin": new_admin.to_json()
+    }    
 
 ####################################################################################################
 

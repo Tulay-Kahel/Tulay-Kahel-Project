@@ -5,9 +5,24 @@ Functions used for authentication and authorization purposes
 NOTE: User Info are not yet finalized
 
 """
+from mongoengine import connect
+from db_models import admins_model as admins
+from db_models.admins_model import Admins
+
 def password_decrypter(password: str):
     # NOTE: Password decryption procedures are pseudo-implementation only, this will be finalized in the future
-    return password
+    # Uses RSA encryption
+    private_key = (2753, 323)
+    
+    decrypted_chars = []
+    for char in password:
+        decrypted_char = chr((ord(char) ** private_key[0]) % private_key[1])
+        decrypted_chars.append(decrypted_char)
+    decrypted_password = "".join(decrypted_chars)
+
+    # Return the decrypted message
+    return decrypted_password
+
 
 def authenticate_user(
     username: str,
@@ -16,8 +31,14 @@ def authenticate_user(
     # NOTE: Authentication procedures are pseudo-implementation only, this will be finalized in the future
     user_authenticated = False
 
-    # NOTE: For now hard code the username and password for testing purposes
-    if username == "admin" and password_decrypter(password) == "admin":
-        user_authenticated = True
+    # Connect to the database
+    connect(db="tulay_kahel", host="mongodb://localhost:27017/tulay_kahel", port=27017)
+
+    # Get the user's info from the Admins collection
+    user_info = Admins.objects(username=username).first()
+    if user_info:
+        # Compare the password
+        if password_decrypter(user_info.password) == password:
+            user_authenticated = True
 
     return user_authenticated
