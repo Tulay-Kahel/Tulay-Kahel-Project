@@ -1,0 +1,16 @@
+# Creation of Docker Container with MongoDB Instance (for the database)
+version: "3.8"
+
+services:
+  mongo:
+    # Using Mongo 4.0 Image from Docker Hub
+    image: mongo:4.0
+    ports:
+    # Exposing the port 27017 to the host machine
+      - 27017:27017
+    volumes:
+    # Attaching the Data Volume to the container
+      - tulayKahelDB:/data/db
+volumes:
+  # Creating a volume for the data
+  tulayKahelDB:
