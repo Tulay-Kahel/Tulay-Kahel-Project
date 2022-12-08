@@ -190,7 +190,31 @@ def new_company(
         return {
             "message": "Company already exists!"
         }
-    
+
+# Update Company Information
+# This will update the company information based on the company ID
+@app.put(
+    "/companies/update/{company_id}",
+    tags=["Companies"],
+    description="This endpoint allows authenticated users to update the company information based on the company ID."
+)
+def update_company(
+    company_id: str,
+    company_name: str,
+    company_contact: str,
+    company_email: str,
+    person_in_charge: str,
+):
+    company_to_update = companies.Companies.objects(id=company_id).first()
+    company_to_update.company_name = company_name
+    company_to_update.company_contact = company_contact
+    company_to_update.company_email = company_email
+    company_to_update.person_in_charge = person_in_charge
+    company_to_update.save()
+    return {
+        "message": "Company successfully updated!",
+        "company": company_to_update.to_json()
+    }
 
 ####################################################################################################
 
