@@ -20,7 +20,7 @@ def password_decrypter(password: str):
         decrypted_chars.append(decrypted_char)
     decrypted_password = "".join(decrypted_chars)
 
-    # Return the decrypted message
+    # Return the decrypted password
     return decrypted_password
 
 
