@@ -1,0 +1,29 @@
+# SAMPLE REPORTS ONLY
+
+### REPORT 1
+
+name = John Alexis
+email = john.alexis@sample_report.com
+report_body = I would like to report the case of Alexa as she is being physically and emotionally abused by her partner for several years.
+report_type = 0
+
+#################
+
+### REPORT 2
+
+name = Samantha Policarpio
+email = samantha.policarpio@sample_report.com
+report_body = I am a victim of domestic violence and I would like to report my case.
+report_type = 1
+
+#################
+
+### REPORT 3
+
+name = Rachel Smith
+email = rachel.smith@sample_report.com
+report_body = I would like to report the case of my friend, Kristine, as she is being physically and emotionally abused by her partner last month.
+report_type = 0
+
+#################
+
