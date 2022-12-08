@@ -256,7 +256,20 @@ def update_company(
     company_contact: str,
     company_email: str,
     person_in_charge: str,
+    username: str,
+    password: str
 ):
+    # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
+    user_authenticated = authenticate_user(username, password)
+
+    # If the user is not authenticated, return a message and an empty list of reports
+    if not user_authenticated:
+        return {
+            "message": f"You are not authorized to update the information in this company!",
+            "reports": []
+        }
+    
+    # If the user is authenticated, return a message and the list of reports
     company_to_update = companies.Companies.objects(id=company_id).first()
     company_to_update.company_name = company_name
     company_to_update.company_contact = company_contact
@@ -265,6 +278,7 @@ def update_company(
     company_to_update.save()
     return {
         "message": "Company successfully updated!",
+        "updated_by": f"{username}",
         "company": company_to_update.to_json()
     }
 
@@ -276,7 +290,11 @@ def update_company(
     description="This endpoint allows authenticated users to delete a company based on the company ID."
 )
 
-def delete_company(company_id: str):
+def delete_company(
+    company_id: str,
+    username: str,
+    password: str
+):
     company_to_delete = companies.Companies.objects(id=company_id).first()
     company_to_delete.delete()
 
