@@ -216,6 +216,24 @@ def update_company(
         "company": company_to_update.to_json()
     }
 
+# Delete Company
+# This will delete a company based on the company ID
+@app.delete(
+    "/companies/delete/{company_id}",
+    tags=["Companies"],
+    description="This endpoint allows authenticated users to delete a company based on the company ID."
+)
+
+def delete_company(company_id: str):
+    company_to_delete = companies.Companies.objects(id=company_id).first()
+    company_to_delete.delete()
+    
+    return {
+        "message": "Company successfully deleted!",
+        "company": company_to_delete.to_json()
+    }
+
+
 ####################################################################################################
 
 
