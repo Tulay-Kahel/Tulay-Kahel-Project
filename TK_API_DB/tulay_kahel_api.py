@@ -61,7 +61,7 @@ connect(db="tulay_kahel", host="mongodb://localhost:27017/tulay_kahel", port=270
 def home():
     return {"message": "Welcome to the Tulay Kahel API!"}
 
-# REPORTS
+###### REPORTS ########################################################################################
 
 # Creating a Report
 # Users will enter their name, email, and report body
@@ -147,6 +147,19 @@ def delete_report(report_id: str):
         "report": report.to_json()
     }
 
+####################################################################################################
+
+####### USERS ######################################################################################
+
+# TODO - Implement the Users API
+
+####################################################################################################
+
+####### RESOURCES ##################################################################################
+
+# TODO - Implement the Resources API
+
+####################################################################################################
 if __name__ == "__main__":
     import uvicorn
     # Allow hot reloading
