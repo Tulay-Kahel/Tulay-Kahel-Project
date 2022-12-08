@@ -9,7 +9,7 @@ This contains the API EndPoints for the Tulay Kahel Web Application
 # IMPORTS
 from fastapi import FastAPI
 from db_models import reports_model as reports
-from db_models.reports_model import Report
+from db_models.reports_model import Reports
 from mongoengine import connect
 from datetime import datetime
 
@@ -83,7 +83,7 @@ def create_report(
         time_reported: datetime = datetime.now()
     ):
     # Create a new report
-    new_report = reports.Report(
+    new_report = reports.Reports(
         company_id=company_id,
         date_reported=date_reported,
         time_reported=time_reported,
@@ -110,10 +110,26 @@ def create_report(
     description="This endpoint allows authenticated users to get all reports based on the company ID."
 )
 def get_all_reports(company_id: str):
-    reports = [i for i in Report.objects(company_id=company_id)]
+    reports = [i for i in Reports.objects(company_id=company_id)]
     return {
         "message": "Reports successfully retrieved!",
         "reports": [report.to_json() for report in reports]
+    }
+
+# Updating a Report
+# This will update the report status based on the report ID
+@app.put(
+    "/reports/update/{report_id}",
+    tags=["Reports"],
+    description="This endpoint allows authenticated users to update the report status of a report based on its report ID."
+)
+def update_report(report_id: str, status: int):
+    report = Reports.objects(id=report_id).first()
+    report.status = status
+    report.save()
+    return {
+        "message": "Report successfully updated!",
+        "report": report.to_json()
     }
 
 # Deleting a Report
@@ -124,7 +140,7 @@ def get_all_reports(company_id: str):
     description="This endpoint allows authenticated users to delete a report based on the report ID."
 )
 def delete_report(report_id: str):
-    report = Report.objects(id=report_id).first()
+    report = Reports.objects(id=report_id).first()
     report.delete()
     return {
         "message": "Report successfully deleted!",

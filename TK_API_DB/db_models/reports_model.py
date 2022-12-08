@@ -8,7 +8,7 @@ from mongoengine import Document, StringField, DateTimeField, IntField
 
 # All models will inherit from the mongoengine Document class
 
-class Report(Document):
+class Reports(Document):
     # Name of the Person Reporting
     name = StringField(required=True)
     # Email of the Person Reporting
