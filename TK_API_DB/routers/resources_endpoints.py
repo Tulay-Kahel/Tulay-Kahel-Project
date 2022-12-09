@@ -71,7 +71,20 @@ def get_directory(
     directory_name: str
 ):
     directory_name = directory_name.lower()
-    return {"message": "Get a specific directory"}
+    get_directory = resources.Directories.objects(directory_name=directory_name)
+
+    # Check if the directory exists
+    if not get_directory:
+        # Directory not found!
+        return {
+            "message": f"Directory: {directory_name} not found!"
+        }
+    
+    # Directory found!
+    return {
+        "message": f"Directory: {directory_name} found!",
+        "directory": [directory.to_json() for directory in get_directory]
+    }
 
 ####
 
