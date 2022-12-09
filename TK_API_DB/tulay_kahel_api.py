@@ -13,7 +13,7 @@ from mongoengine import connect
 from datetime import datetime
 
 # Import files from the routers folder
-from routers import reports_endpoints, companies_endpoints, admins_endpoints
+from routers import reports_endpoints, companies_endpoints, admins_endpoints, resources_endpoints
 
 # Initialize the FastAPI application
 app = FastAPI(
@@ -76,12 +76,8 @@ app.include_router(companies_endpoints.router)
 # ADMINS
 app.include_router(admins_endpoints.router)
 
-
-####### RESOURCES ##################################################################################
-
-# TODO - Implement the Resources API
-
-####################################################################################################
+# RESOURCES
+app.include_router(resources_endpoints.router)
 
 if __name__ == "__main__":
     import uvicorn
