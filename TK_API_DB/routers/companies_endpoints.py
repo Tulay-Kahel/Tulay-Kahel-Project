@@ -98,6 +98,17 @@ def delete_company(
     username: str,
     password: str
 ):
+    # NOTE: Authentication procudures are pseudo-implementation only, this will be finalized in the future
+    user_authenticated = authenticate_user(username, password, company_id=company_id)
+
+    # If the user is not authenticated, return a message and an empty list
+    if not user_authenticated:
+        return {
+            "message": f"You are not authorized to delete any reports in this company!",
+            "reports": []
+        }
+    
+    # If the user is authenticated, return a message and the list of deleted company details
     company_to_delete = companies.Companies.objects(id=company_id).first()
     company_to_delete.delete()
 
