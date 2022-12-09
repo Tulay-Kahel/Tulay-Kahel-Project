@@ -24,7 +24,7 @@ def add_directory(
     ):
     
     # Check if the directory already exists
-    if resources.Directories.objects(directory_name=directory_name):
+    if resources.Directories.objects(directory_name=directory_name.lower()):
         # Directory already exists!
         return {
             "message": f"Directory already exists!"
@@ -32,7 +32,7 @@ def add_directory(
     
     # Create a new directory
     new_directory = resources.Directories(
-        directory_name=directory_name,
+        directory_name=directory_name.lower(),
         directory_address=directory_address,
         # Directory contacts are stored as a list (comma separated)
         directory_contacts = directory_contacts.split(",") if directory_contacts else [],
@@ -50,7 +50,10 @@ def add_directory(
 
 # Get all directories
 # This are the directories for VAWC related contacts and resources
-@router.get("/directories", tags=["Resources"])
+@router.get(
+    "/directories",
+    tags=["Resources"]
+)
 def get_all_directories():
     get_all_directories = resources.Directories.objects()
 
@@ -60,8 +63,13 @@ def get_all_directories():
     }
 
 # Get a specific directory based on the name of the organization
-@router.get("/directories/{directory_name}", tags=["Resources"])
-def get_directory(directory_name: str):
+@router.get(
+    "/directories/{directory_name}",
+    tags=["Resources"]
+)
+def get_directory(
+    directory_name: str
+):
     directory_name = directory_name.lower()
     return {"message": "Get a specific directory"}
 
