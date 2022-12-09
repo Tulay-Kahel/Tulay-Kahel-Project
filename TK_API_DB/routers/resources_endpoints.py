@@ -142,16 +142,28 @@ def get_all_informations():
     all_informations = resources.Informations.objects()
 
     return {
-        "message": "All informations",
+        "message": "Successfully Retrieved All Informations",
         "informations": [information.to_json() for information in all_informations]
     }
 
 # Get a specific information based on the title of the information
 @router.get("/informations/{info_title}", tags=["Resources"])
 def get_information(info_title: str):
-    info_title = info_title.lower()
-    return {"message": "Get a specific information"}
+    info_title = info_title.title()
+    get_information = resources.Informations.objects(info_title=info_title)
 
+    if not get_information:
+        # Information not found!
+        return {
+            "message": f"Information: {info_title} not found!"
+        }
+    
+    # Information found!
+    return {
+        "message": f"Information: {info_title} found!",
+        "information": [information.to_json() for information in get_information]
+    }
 ####
+
 
 ########################################################################################################
