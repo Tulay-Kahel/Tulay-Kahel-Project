@@ -24,3 +24,24 @@ class TulayKahel extends StatelessWidget {
     );
   }
 }
+
+final ThemeData _TulayKahelTheme = _buildTulayKahelTheme();
+
+ThemeData _buildTulayKahelTheme() {
+  final ThemeData base = ThemeData.light();
+  return base.copyWith(
+    // Visual Density is adaptive to the platform
+    // Since we need to support a wide range of devices.
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    primaryColor: const Color(0xFFFFB656),
+    scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: Colors.orange,
+      accentColor: Colors.indigoAccent[200],
+      cardColor: Colors.white,
+      backgroundColor: Colors.white,
+    ).copyWith(
+      secondary: const Color(0xFF8D61A9),
+    ),
+  );
+}
