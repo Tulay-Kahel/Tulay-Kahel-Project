@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tk_webapp/pages/admin_console.dart';
 import 'package:tk_webapp/pages/admin_login.dart';
 import 'package:tk_webapp/pages/admin_reg.dart';
 import 'package:tk_webapp/pages/home.dart';
 import 'package:tk_webapp/pages/report_case.dart';
 import 'package:tk_webapp/pages/information.dart';
+import 'package:tk_webapp/pages/support.dart';
 import 'package:tk_webapp/pages/about.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +26,7 @@ class TulayKahel extends StatelessWidget {
         '/report': (context) => ReportCase(),
         '/information': (context) => Information(),
         '/about': (context) => About(),
+        '/support': (context) => Support(),
       },
     );
   }

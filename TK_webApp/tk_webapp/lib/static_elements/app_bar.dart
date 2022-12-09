@@ -115,10 +115,7 @@ app_bar(context, activePage) {
               // Support Text Button
               TextButton(
                 onPressed: () {
-                  // Navigator.pushNamed(context, '/support');
-                  // Support Page is not yet implemented
-                  // TENTATIVE: PRINT TO CONSOLE
-                  print("Support Page is not yet implemented");
+                  Navigator.pushNamed(context, '/support');
                 },
                 child: Text(
                   'Support',
