@@ -1,6 +1,6 @@
-from fastapi import APIRouter
 from db_models import reports_model as reports
 from db_models.reports_model import Reports
+from fastapi import APIRouter
 from datetime import datetime
 from utils.authenticator import authenticate_user
 
