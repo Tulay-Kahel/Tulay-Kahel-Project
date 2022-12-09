@@ -12,9 +12,9 @@ from mongoengine import Document, StringField, ListField, DateField
 class Directories(Document):
     directory_name = StringField(required=True)
     directory_address = StringField(required=True)
-    directory_contacts = ListField(StringField(), required=True) # There could be more than one contact number
-    directory_emails = StringField(required=True) # There could be more than one email address
-    directory_websites = StringField(required=True) # There could be more than one website or social media accounts
+    directory_contacts = ListField(StringField()) # There could be more than one contact number
+    directory_emails = ListField(StringField()) # There could be more than one email address
+    directory_websites = ListField(StringField()) # There could be more than one website or social media accounts
 
     # Initializing the Directories
     def __init__(self, directory_name, directory_address, directory_contacts, directory_emails, directory_websites, *args, **kwargs):
@@ -33,7 +33,6 @@ class Directories(Document):
             "directory_contacts": self.directory_contacts,
             "directory_emails": self.directory_emails,
             "directory_websites": self.directory_websites,
-            "report_link": f"/reports/create/{self.generate_id()}" # TO DO: Change this on deployment
         }
 
 
