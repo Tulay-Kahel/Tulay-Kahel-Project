@@ -8,9 +8,7 @@ This contains the API EndPoints for the Tulay Kahel Web Application
 
 # IMPORTS
 from fastapi import FastAPI
-from utils.authenticator import authenticate_user
 from mongoengine import connect
-from datetime import datetime
 
 # Import files from the routers folder
 from routers import reports_endpoints, companies_endpoints, admins_endpoints, resources_endpoints

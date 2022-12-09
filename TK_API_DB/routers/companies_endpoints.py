@@ -1,7 +1,5 @@
 from db_models import companies_model as companies
-from db_models.companies_model import Companies
 from fastapi import APIRouter
-from datetime import datetime
 from utils.authenticator import authenticate_user
 
 router = APIRouter(
