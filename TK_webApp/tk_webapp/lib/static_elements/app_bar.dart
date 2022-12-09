@@ -64,13 +64,27 @@ app_bar(context, activePage) {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               // Tulay Kahel Logo
-              const Text(
-                "Tulay Kahel",
-                style: TextStyle(
-                  color: Colors.orange,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                children: [
+                  // Tulay Kahel Logo
+                  Image.asset(
+                    'lib/assets/TK_logo.png',
+                    height: 50,
+                    width: 50,
+                  ),
+                  // Spacer
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Tulay\nKahel",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
               // Home Text Button
               TextButton(
