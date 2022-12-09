@@ -64,4 +64,5 @@ python3 tulay_kahel_api.py
 - Flutter (latest stable version as of December 2022)
 ### Flutter Libraries
 - Material Design
+- Google Fonts
 ### Setup (Frontend)
