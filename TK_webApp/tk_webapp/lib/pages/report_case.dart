@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tk_webapp/static_elements/app_bar.dart';
 
 class ReportCase extends StatelessWidget {
+  var _valRadio1 = 0;
+  var _valRadio2 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,8 +162,10 @@ class ReportCase extends StatelessWidget {
                       Radio(
                         value: 1,
                         groupValue: 1,
+                        toggleable: true,
                         onChanged: (value) {
-                          // TODO: Add function
+                          _valRadio1 = 1;
+                          _valRadio2 = 0;
                         },
                         activeColor: Colors.indigo,
                       ),
@@ -177,8 +182,10 @@ class ReportCase extends StatelessWidget {
                       Radio(
                         value: 2,
                         groupValue: 1,
+                        toggleable: true,
                         onChanged: (value) {
-                          // TODO: Add function
+                          _valRadio2 = 1;
+                          _valRadio1 = 0;
                         },
                         activeColor: Colors.indigo,
                       ),
