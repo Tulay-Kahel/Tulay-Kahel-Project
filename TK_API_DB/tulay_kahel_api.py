@@ -83,10 +83,10 @@ def home():
     )
 def create_report(
         company_id: str,
-        name: str,
+        name1: str,
+        name2: str,
         email: str,
         report_body: str,
-        report_type: int,
         status: int = 0,
         date_reported: datetime = datetime.now(),
         time_reported: datetime = datetime.now()
@@ -96,11 +96,12 @@ def create_report(
         company_id=company_id,
         date_reported=date_reported,
         time_reported=time_reported,
-        name=name,
+        # Name 1 is required, Name 2 is optional
+        names= [name1, name2] if name2 else [name1],
         email=email,
         report_body=report_body,
         status=status,
-        report_type=report_type)
+    )
 
     # Save the report to the database
     new_report.save()
