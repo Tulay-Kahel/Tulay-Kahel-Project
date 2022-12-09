@@ -79,13 +79,13 @@ app_bar(context, activePage) {
                 },
                 child: Text(
                   'Home',
-                  style: _currentPage("Home", activePage),
+                  style: _currentPage("home", activePage),
                 ),
               ),
               // Get Help Text Button
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushNamed(context, '/report');
                 },
                 child: Text(
                   'Get Help',
@@ -95,14 +95,11 @@ app_bar(context, activePage) {
               // Information Text Button
               TextButton(
                 onPressed: () {
-                  // Navigator.pushNamed(context, '/information');
-                  // Information Page is not yet implemented
-                  // TENTATIVE: PRINT TO CONSOLE
-                  print("Information Page is not yet implemented");
+                  Navigator.pushNamed(context, '/information');
                 },
                 child: Text(
                   'Information',
-                  style: _currentPage("Info", activePage),
+                  style: _currentPage("information", activePage),
                 ),
               ),
               // Abput Text Button

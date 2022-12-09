@@ -6,6 +6,7 @@ import 'package:tk_webapp/pages/admin_reg.dart';
 import 'package:tk_webapp/pages/home.dart';
 import 'package:tk_webapp/pages/report_case.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tk_webapp/pages/information.dart';
 
 class TulayKahel extends StatelessWidget {
   @override
@@ -22,6 +23,7 @@ class TulayKahel extends StatelessWidget {
         '/register': (context) => AdminReg(),
         '/home': (context) => Home(),
         '/report': (context) => ReportCase(),
+        '/information': (context) => Information(),
       },
     );
   }
