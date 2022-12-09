@@ -55,11 +55,11 @@ def add_directory(
     tags=["Resources"]
 )
 def get_all_directories():
-    get_all_directories = resources.Directories.objects()
+    all_directories = resources.Directories.objects()
 
     return {
         "message": "All directories",
-        "directories": [directory.to_json() for directory in get_all_directories]
+        "directories": [directory.to_json() for directory in all_directories]
     }
 
 # Get a specific directory based on the name of the organization
@@ -134,9 +134,17 @@ def add_information(
 
 # Get all informations
 # These are the informations about VAWC
-@router.get("/informations", tags=["Resources"])
+@router.get(
+    "/informations",
+    tags=["Resources"]
+)
 def get_all_informations():
-    return {"message": "Get all informations"}
+    all_informations = resources.Informations.objects()
+
+    return {
+        "message": "All informations",
+        "informations": [information.to_json() for information in all_informations]
+    }
 
 # Get a specific information based on the title of the information
 @router.get("/informations/{info_title}", tags=["Resources"])
