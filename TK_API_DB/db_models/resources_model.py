@@ -63,5 +63,4 @@ class Informations(Document):
             "info_publication_date": self.info_publication_date,
             "info_content": self.info_content,
             "info_links": self.info_links,
-            "report_link": self.info_links
         }
