@@ -2,7 +2,7 @@
 "Building bridges towards a VAW-Free Workplace"
 
 ## About
-Tulay Kahel (orange bridge, a pun on “kulay kahel” and the fact that the company/employer (via the webapp) serves more like a bridge between the VAWC victim and VAWC partners
+Tulay Kahel (orange bridge, a pun on “kulay kahel” and the fact that the company/employer (via the webapp) serves more like a bridge between the VAW-affected individuals/survivors and VAWC partners.
 ### The Team
 - Product Manager: [Nikko Gabriel J. Hismaña](https://github.com/nikko-gabriel)
 - Lead Developer: [John Markton M. Olarte](https://github.com/GravitonXD)
@@ -10,7 +10,7 @@ Tulay Kahel (orange bridge, a pun on “kulay kahel” and the fact that the com
 
 ## Project Befits
 ### Immediate Benefits
-- Encourage employees to report (either in person or via the webapp) as they’ll be aware that the company assists VAWC victims
+- Encourage employees to report (either in person or via the webapp) as they’ll be aware that the company assists VAW-affected individuals/survivors 
 - Enable companies/employers to assist and help report VAWC cases among their employees
 - Enable employee well-being
 - Improve company/employer publicity and reputation
@@ -23,14 +23,10 @@ Tulay Kahel (orange bridge, a pun on “kulay kahel” and the fact that the com
 - Python 3.6+, preferably 3.11
 - Docker Compose
 - MongoDB Compass (optional)
-### Prequisites (Frontend)
-- Flutter (latest stable version as of December 2022)
 ### Python Libraries
 - FastAPI
 - mongoengine
 - uvicorn
-### Flutter Libraries
-- None yet
 ### Setup (Backend)
 - Clone the repository
 - Activate the MongoDB Container
@@ -64,5 +60,8 @@ Run the API server using Python
 python3 tulay_kahel_api.py
 ```
 
+### Prequisites (Frontend)
+- Flutter (latest stable version as of December 2022)
+### Flutter Libraries
+- Material Design
 ### Setup (Frontend)
-Coming soon
