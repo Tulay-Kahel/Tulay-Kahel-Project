@@ -52,7 +52,12 @@ def add_directory(
 # This are the directories for VAWC related contacts and resources
 @router.get("/directories", tags=["Resources"])
 def get_all_directories():
-    return {"message": "Get all directories"}
+    get_all_directories = resources.Directories.objects()
+
+    return {
+        "message": "All directories",
+        "directories": [directory.to_json() for directory in get_all_directories]
+    }
 
 # Get a specific directory based on the name of the organization
 @router.get("/directories/{directory_name}", tags=["Resources"])
