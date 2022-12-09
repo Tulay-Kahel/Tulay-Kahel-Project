@@ -107,13 +107,9 @@ app_bar(context, activePage) {
                 onPressed: () {
                   Navigator.pushNamed(context, '/about');
                 },
-                child: const Text(
+                child: Text(
                   'About',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
+                  style: _currentPage("about", activePage),
                 ),
               ),
               // Support Text Button

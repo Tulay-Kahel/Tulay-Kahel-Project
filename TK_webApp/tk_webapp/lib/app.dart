@@ -5,8 +5,9 @@ import 'package:tk_webapp/pages/admin_login.dart';
 import 'package:tk_webapp/pages/admin_reg.dart';
 import 'package:tk_webapp/pages/home.dart';
 import 'package:tk_webapp/pages/report_case.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tk_webapp/pages/information.dart';
+import 'package:tk_webapp/pages/about.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TulayKahel extends StatelessWidget {
   @override
@@ -24,6 +25,7 @@ class TulayKahel extends StatelessWidget {
         '/home': (context) => Home(),
         '/report': (context) => ReportCase(),
         '/information': (context) => Information(),
+        '/about': (context) => About(),
       },
     );
   }
