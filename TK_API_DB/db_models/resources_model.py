@@ -43,15 +43,17 @@ class Informations(Document):
     info_publication_date = DateField()
     info_content = StringField(required=True)
     info_links = ListField(StringField()) # There could be more than one link (These can be references or external links)
+    info_tags = ListField(StringField()) # There could be more than one tag
 
     # Initializing the Informations
-    def __init__(self, info_title, info_authors, info_publication_date, info_content, info_links, *args, **kwargs):
+    def __init__(self, info_title, info_authors, info_publication_date, info_content, info_links, info_tags, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.info_title = info_title
         self.info_authors = info_authors
         self.info_publication_date = info_publication_date
         self.info_content = info_content
         self.info_links = info_links
+        self.info_tags = info_tags
 
     # Converting the Informations to JSON
     def to_json(self):
@@ -61,5 +63,5 @@ class Informations(Document):
             "info_publication_date": self.info_publication_date,
             "info_content": self.info_content,
             "info_links": self.info_links,
-            "report_link": f"/reports/create/{self.generate_id()}" # TO DO: Change this on deployment
+            "report_link": self.info_links
         }

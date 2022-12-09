@@ -92,9 +92,45 @@ def get_directory(
 #### INFORMATION
 
 # Add an information
-@router.post("/informations", tags=["Resources"])
-def add_information(information: str):
-    return {"message": "Add an information"}
+@router.post(
+    "/informations",
+    tags=["Resources"]
+)
+def add_information(
+    info_title: str,
+    info_authors: str,
+    info_publication_date: str,
+    info_content: str,
+    info_links: str,
+    info_tags: str
+):
+    # Check if the information already exists
+    if resources.Informations.objects(info_title=info_title.title()):
+        # Information already exists!
+        return {
+            "message": f"Information already exists!"
+        }
+    
+    # Create a new information
+    new_information = resources.Informations(
+        info_title=info_title.title(),
+        # Information authors are stored as a list (semicolon separated)
+        info_authors = info_authors.split(";") if info_authors else [],
+        info_publication_date=info_publication_date,
+        info_content=info_content,
+        # Information links are stored as a list (semicolon separated)
+        info_links = info_links.split(";") if info_links else [],
+        # Information tags are stored as a list (hash separated)
+        info_tags = info_tags.split("#") if info_tags else []
+    )
+
+    new_information.save()
+
+    return {
+        "message": "Information successfully created!",
+        "information": new_information.to_json()
+    }
+
 
 # Get all informations
 # These are the informations about VAWC
