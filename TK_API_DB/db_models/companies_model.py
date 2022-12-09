@@ -32,6 +32,6 @@ class Companies(Document):
             "report_link": f"/reports/create/{self.generate_id()}" # TO DO: Change this on deployment
         }
 
-    # Fucntion to generate an ID for the Company
+    # Function to generate an ID for the Company
     def generate_id(self):
         return str(self.id)
