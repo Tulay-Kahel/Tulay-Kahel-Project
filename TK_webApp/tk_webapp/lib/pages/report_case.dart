@@ -5,7 +5,7 @@ class ReportCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: app_bar(context),
+      appBar: app_bar(context, "report"),
       body: const Center(
         child: Text("Report Case"),
       ),

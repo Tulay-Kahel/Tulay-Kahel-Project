@@ -5,10 +5,10 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Admin Registration"),
+        title: const Text("Home"),
       ),
       body: const Center(
-        child: Text("Admin Registration"),
+        child: Text("Home"),
       ),
     );
   }

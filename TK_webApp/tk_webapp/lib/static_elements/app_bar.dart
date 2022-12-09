@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
 // Return a widget that contains the app bar
 
-app_bar(context) {
+// highlights the Text Menu with Orange color if it is the current active page
+// ignore: non_constant_identifier_names
+_currentPage(menuText, activePage) {
+  if (menuText == activePage) {
+    return const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.orange,
+      fontSize: 15,
+    );
+  } else {
+    return const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+      fontSize: 15,
+    );
+  }
+}
+
+// App Bar
+app_bar(context, activePage) {
   return AppBar(
     // Remove automatic back button
     automaticallyImplyLeading: false,
@@ -58,41 +77,32 @@ app_bar(context) {
                 onPressed: () {
                   Navigator.pushNamed(context, '/home');
                 },
-                child: const Text(
+                child: Text(
                   'Home',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
+                  style: _currentPage("Home", activePage),
                 ),
               ),
               // Get Help Text Button
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamed(context, '/home');
                 },
-                child: const Text(
+                child: Text(
                   'Get Help',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.orange,
-                    fontSize: 15,
-                  ),
+                  style: _currentPage("report", activePage),
                 ),
               ),
               // Information Text Button
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/info');
+                  // Navigator.pushNamed(context, '/information');
+                  // Information Page is not yet implemented
+                  // TENTATIVE: PRINT TO CONSOLE
+                  print("Information Page is not yet implemented");
                 },
-                child: const Text(
+                child: Text(
                   'Information',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
+                  style: _currentPage("Info", activePage),
                 ),
               ),
               // Abput Text Button
@@ -112,15 +122,14 @@ app_bar(context) {
               // Support Text Button
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/support');
+                  // Navigator.pushNamed(context, '/support');
+                  // Support Page is not yet implemented
+                  // TENTATIVE: PRINT TO CONSOLE
+                  print("Support Page is not yet implemented");
                 },
-                child: const Text(
+                child: Text(
                   'Support',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
+                  style: _currentPage("support", activePage),
                 ),
               ),
               // Register Company Button (Elevated Button)
@@ -128,7 +137,9 @@ app_bar(context) {
                 style: ElevatedButton.styleFrom(
                   maximumSize: const Size(200, 60),
                   padding: const EdgeInsets.symmetric(
-                      vertical: 10.0, horizontal: 20.0),
+                    vertical: 10.0,
+                    horizontal: 20.0,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.52),
                   ),
