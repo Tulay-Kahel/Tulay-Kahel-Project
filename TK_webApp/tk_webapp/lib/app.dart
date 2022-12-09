@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tk_webapp/pages/admin_console.dart';
 import 'package:tk_webapp/pages/admin_login.dart';
 import 'package:tk_webapp/pages/admin_reg.dart';
 import 'package:tk_webapp/pages/home.dart';
 import 'package:tk_webapp/pages/report_case.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TulayKahel extends StatelessWidget {
   @override
@@ -13,7 +15,7 @@ class TulayKahel extends StatelessWidget {
       theme: _TulayKahelTheme,
       // NOTE: Initial Route will be changed to the current working page
       // But for deployment, it will be the route to home.
-      initialRoute: '/console',
+      initialRoute: '/report',
       routes: {
         '/console': (context) => AdminConsole(),
         '/login': (context) => AdminLogin(),
@@ -33,7 +35,13 @@ ThemeData _buildTulayKahelTheme() {
     // Visual Density is adaptive to the platform
     // Since we need to support a wide range of devices.
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    textTheme: GoogleFonts.poppinsTextTheme(base.textTheme),
     primaryColor: const Color(0xFFFFB656),
+    appBarTheme: const AppBarTheme(
+      toolbarHeight: 80.0,
+      color: Colors.white,
+      elevation: 10.0,
+    ),
     scaffoldBackgroundColor: const Color(0xFFFFFFFF),
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: Colors.orange,
