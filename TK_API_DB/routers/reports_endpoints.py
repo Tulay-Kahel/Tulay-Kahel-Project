@@ -16,7 +16,7 @@ router = APIRouter(
 # The report will be saved to the database
 # Multple parameters will be required
 @router.post(
-    "/reports/create/{company_id}",
+    "/create/{company_id}",
     tags=["Reports"],
     description="This endpoint allows users to create a report."
     )
@@ -54,7 +54,7 @@ def create_report(
 # Getting all Reports based on Company ID
 # This will return all reports in the database
 @router.get(
-    "/reports/{company_id}",
+    "/{company_id}",
     tags=["Reports"],
     description="This endpoint allows authenticated users to get all reports based on the company ID."
 )
@@ -85,7 +85,7 @@ def get_all_reports(
 # Getting a Report based on Report ID
 # This will return a report based on the report ID
 @router.get(
-    "/reports/{report_id}/{company_id}",
+    "/{report_id}/{company_id}",
     tags=["Reports"],
     description="This endpoint allows authenticated users to get a report based on the report ID."
 )
@@ -116,7 +116,7 @@ def get_report(
 # Updating a Report
 # This will update the report status based on the report ID
 @router.put(
-    "/reports/update/{report_id}",
+    "/update/{report_id}",
     tags=["Reports"],
     description="This endpoint allows authenticated users to update the report status of a report based on its report ID."
 )
@@ -150,7 +150,7 @@ def update_report(
 # Deleting a Report
 # This will delete a report based on the report ID
 @router.delete(
-    "/reports/delete/{report_id}",
+    "/delete/{report_id}",
     tags=["Reports"],
     description="This endpoint allows authenticated users to delete a report based on the report ID."
 )
