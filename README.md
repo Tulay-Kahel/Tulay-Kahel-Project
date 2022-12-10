@@ -9,43 +9,65 @@
 
 <h2 style="color:orange"> About </h2>
 
-Tulay Kahel (orange bridge, a pun on “kulay kahel” and the fact that the company/employer (via the webapp) serves more like a bridge between the VAW-affected individuals/survivors and VAWC partners.
+Tulay Kahel (orange bridge 🍊🌉, a pun on <b style="color:orange">“kulay kahel”</b> and the fact that the company/employer (via the webapp) serves more like a bridge between the VAW-affected individuals/survivors and VAWC partners.
 
-A web-based application that enables and equips the private sector to set up their own VAW Reporting (Virtual) Desk to receive reports and assist their VAW-affected employees.
+ℹ A web-based application that enables and equips the private sector to set up their own VAW Reporting (Virtual) Desk to receive reports and assist their VAW-affected employees.
 
 <h2 style="color:orange"> Features </h2>
 
-- VAW Case Reporting for affected employees
-- Registration and Certification System to be a VAW Partner
-- EVAW Toolkit for Private Sector (Guides, Readings, directory of VAW Desks and EVAWC Organizations and Volunteers)
-- Dedicated Assistance in cases of bias, conflict-of-interest
-- VAW Case Reports Management Suite for Companies/Employers
+✅ VAW Case Reporting for affected employees
+
+✅ Registration and Certification System to be a VAW Partner
+
+✅ EVAW Toolkit for Private Sector (Guides, Readings, directory of VAW Desks and EVAWC Organizations and Volunteers)
+
+✅ Dedicated Assistance in cases of bias, conflict-of-interest
+
+✅VAW Case Reports Management Suite for Companies/Employers
 
 <h2 style="color:orange"> How Can Tulay Kahel Help? </h2>
 
 ### For Employees
-- Remotely and Securely Report VAW Cases (via company-supplied report link)
-- Get timely updates
-- Be assisted and referred to EVAW partners
+
+✅ Remotely and Securely Report VAW Cases (via company-supplied report link)
+
+✅ Get timely updates
+
+✅ Be assisted and referred to EVAW partners
+
 ### For Companies/Employers
-- Register and get Certified as EVAW Partner Manage VAW Reports
-- Get access to VAW for private sector toolkits
-- Ensure employee well-being
+
+✅ Register and get Certified as EVAW Partner Manage VAW Reports
+
+✅ Get access to VAW for private sector toolkits
+
+✅ Ensure employee well-being
+
 ### For VAW Desks, EVAW Organizations, and Volunteers
-- Become more accessible and widen their reach
-- Share knowledge and expertise to the private sector
+
+✅ Become more accessible and widen their reach
+
+✅ Share knowledge and expertise to the private sector
 
 
 <h2 style="color:orange"> Project Befits </h2>
 
 ### Immediate Benefits
-- Encourage employees to report (either in person or via the webapp) as they’ll be aware that the company assists VAW-affected individuals/survivors 
-- Enable companies/employers to assist and help report VAWC cases among their employees
-- Enable employee well-being
-- Improve company/employer publicity and reputation
+
+🍊 Encourage employees to report (either in person or via the webapp) as they’ll be aware that the company assists VAW-affected individuals/survivors 
+
+🍊 Enable companies/employers to assist and help report VAWC cases among their employees
+
+🍊 Enable employee well-being
+
+🍊 Improve company/employer publicity and reputation
+
 ### Secondary Benefits
-- Raise awareness on VAWC, and that employers also have a role in ending VAWC
-- Raise awareness and becoming an extension of Anti-VAWC partners (e.g. IACVAWC, UPV GAD, UGSAD)
+
+🍊 Raise awareness on VAWC, and that employers also have a role in ending VAWC
+
+🍊 Raise awareness and becoming an extension of Anti-VAWC partners (e.g. IACVAWC, 
+UPV GAD, UGSAD)
 
 <h2 style="color:orange"> Running the Project (Development and Testing) </h2>
 
