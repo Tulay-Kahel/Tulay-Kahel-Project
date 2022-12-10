@@ -17,7 +17,7 @@ class TulayKahel extends StatelessWidget {
       theme: _TulayKahelTheme,
       // NOTE: Initial Route will be changed to the current working page
       // But for deployment, it will be the route to home.
-      initialRoute: '/report',
+      initialRoute: '/login',
       routes: {
         '/console': (context) => AdminConsole(),
         '/login': (context) => AdminLogin(),
