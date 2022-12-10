@@ -1,9 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:tk_webapp/static_elements/app_bar.dart';
 
-class ReportCase extends StatelessWidget {
-  var _valRadio1 = 0;
+class ReportCase extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ReportCaseState();
+  }
+}
+
+class _ReportCaseState extends State<ReportCase> {
+  var _valRadio1 = 1;
   var _valRadio2 = 0;
+
+  _showVAWSurvivorField() {
+    return // Name of VAW Survivor Text Field
+        Column(
+      children: [
+        SizedBox(
+          width: (MediaQuery.of(context).size.width * 0.5) * 0.8,
+          child: Row(
+            children: [
+              // Name of VAW Survivor Text Field
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "VAW-Survivor Name *",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    width: (MediaQuery.of(context).size.width * 0.5) * 0.8,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Name",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        // Divider
+        const Divider(
+          color: Colors.white,
+          height: 20,
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +161,7 @@ class ReportCase extends StatelessWidget {
                   color: Colors.white,
                   thickness: 1,
                 ),
+                _valRadio2 == 1 ? _showVAWSurvivorField() : Container(),
                 // Tell Us Anything Text Field
                 SizedBox(
                   width: (MediaQuery.of(context).size.width * 0.5) * 0.8,
@@ -160,12 +211,14 @@ class ReportCase extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Radio(
-                        value: 1,
+                        value: _valRadio1,
                         groupValue: 1,
                         toggleable: true,
                         onChanged: (value) {
-                          _valRadio1 = 1;
-                          _valRadio2 = 0;
+                          setState(() {
+                            _valRadio1 = 1;
+                            _valRadio2 = 0;
+                          });
                         },
                         activeColor: Colors.indigo,
                       ),
@@ -180,12 +233,14 @@ class ReportCase extends StatelessWidget {
                         width: (MediaQuery.of(context).size.width * 0.5) * 0.1,
                       ),
                       Radio(
-                        value: 2,
+                        value: _valRadio2,
                         groupValue: 1,
                         toggleable: true,
                         onChanged: (value) {
-                          _valRadio2 = 1;
-                          _valRadio1 = 0;
+                          setState(() {
+                            _valRadio1 = 0;
+                            _valRadio2 = 1;
+                          });
                         },
                         activeColor: Colors.indigo,
                       ),
