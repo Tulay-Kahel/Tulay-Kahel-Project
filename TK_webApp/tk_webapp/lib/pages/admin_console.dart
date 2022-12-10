@@ -1,14 +1,26 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:tk_webapp/static_elements/app_bar.dart';
+import 'package:tk_webapp/static_elements/side_panel.dart';
 
-class AdminConsole extends StatelessWidget {
+class AdminConsole extends StatefulWidget {
+  @override
+  // ignore: library_private_types_in_public_api
+  _AdminConsoleState createState() => _AdminConsoleState();
+}
+
+class _AdminConsoleState extends State<AdminConsole> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Temporary AppBar (Adnmin Console will have a different AppBar)
-      appBar: app_bar(context, "admin_console"),
-      body: const Center(
-        child: Text("Admin Console"),
+      appBar: null,
+      body: Row(
+        children: [
+          // Side Panel
+          side_panel(context),
+
+          // Main Panel
+          Container(),
+        ],
       ),
     );
   }
